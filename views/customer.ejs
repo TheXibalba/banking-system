@@ -1,0 +1,113 @@
+<%-include("./partials/header") %> <%-include("./partials/navbar") %> 
+
+<div
+  class="
+    container-fluid
+    d-flex
+    justify-content-center
+    align-items-center
+    flex-column
+    mt-3
+    overflow-hidden
+  "
+>
+  <div class="container-fluid w-50">
+    <div class="card p-2">
+      <h5 class="card-header text-center fw-bold">Customer Account Details</h5>
+      <div class="d-flex align-items-center justify-content-evenly mt-3 mb-3">
+        <img
+          class="card-img-top p-3 mt-2 border border-dark w-25"
+          src="/images/dog.jpg"
+          alt="Card image cap"
+        />
+        <div class="div">
+          <ul class="list-group">
+            <li class="list-group-item">
+              <span class="fw-bold"> Name: </span>
+
+              <%=customerData.name%>
+            </li>
+            <li class="list-group-item">
+              <span class="fw-bold"> Date of Birth: </span>
+
+              <%=dob%>
+            </li>
+            <li class="list-group-item">
+              <span class="fw-bold"> Created on: </span>
+
+              <%=createdAt%>
+            </li>
+            <li class="list-group-item">
+              <span class="fw-bold"> Modified on: </span>
+
+              <%=modifiedAt%>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="card-body border border-dark mt-2">
+        <ul class="list-group">
+          <li class="list-group-item">
+            <span class="fw-bold"> Account ID: </span>
+
+            <%=customerData.accNo%>
+          </li>
+
+          <li class="list-group-item">
+            <span class="fw-bold"> Email ID: </span>
+
+            <%=customerData.email%>
+          </li>
+          <li class="list-group-item">
+            <span class="fw-bold"> Contact Number: </span>
+
+            <%=customerData.phone%>
+          </li>
+
+          <li class="list-group-item">
+            <span class="fw-bold"> Residential Address: </span>
+
+            <%=customerData.address%>
+          </li>
+          <li class="list-group-item">
+            <span class="fw-bold"> Current Balance: </span
+            ><i class="fas fa-rupee-sign"></i
+            ><%=(customerData.currentBal).toLocaleString('en-IN')%>
+          </li>
+        </ul>
+        <div
+          class="
+            container-fluid
+            d-flex
+            justify-content-around
+            align-items-center
+            mt-3
+          "
+        >
+          <a
+            href="<%=customerData.accNo%>/transactions"
+            class="btn btn-md btn-primary fw-bold"
+            >View Transactions</a
+          >
+
+          <button
+            type="button"
+            class="btn btn-md btn-success"
+            data-bs-toggle="modal"
+            data-bs-target="#staticBackdrop"
+          >
+            Add Funds
+          </button>
+
+          <a
+            href="<%=customerData.accNo%>/transfer"
+            class="btn btn-md btn-danger fw-bold"
+            >Transfer Funds</a
+          >
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%-include("./partials/addFundsModal") %> <%-include("./partials/footer") %>

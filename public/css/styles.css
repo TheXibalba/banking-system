@@ -1,0 +1,15 @@
+* {
+  box-sizing: border-box;
+}
+
+
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+}
+
+body{
+    background-image: url('/images/background.jpg') !important;
+    /* background: red imprt !important;  */
+}
