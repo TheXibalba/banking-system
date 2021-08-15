@@ -5,6 +5,13 @@ const PORT = 3000 || process.env.PORT;
 const ejs = require("ejs");
 const cors = require("cors");
 const { indexController } = require("./controllers/indexController");
+
+require("dotenv").config();
+
+const DB_USERNAME=process.env.DB_USERNAME;
+const DB_PASSWORD=process.env.DB_PASSWORD;
+
+
 const {
   customerDisplayController,
 } = require("./controllers/customerDisplayController");
@@ -26,7 +33,10 @@ app.use(express.static(__dirname + "/public"));
 app.use(express.urlencoded({ extended: true }));
 
 const connection = mongoose.connect(
-  "mongodb://localhost:27017/banking-system",
+  // "mongodb://localhost:27017/banking-system",
+
+  `mongodb+srv://${DB_USERNAME}:${DB_PASSWORD}@cluster0.ia2jk.mongodb.net/banking-system?retryWrites=true&w=majority`
+  ,
   {
     useNewUrlParser: true,
     useUnifiedTopology: true,
