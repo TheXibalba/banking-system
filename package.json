@@ -10,12 +10,14 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "animate.css": "^4.1.1",
     "dotenv": "^10.0.0",
     "ejs": "^3.1.6",
     "express": "^4.17.1",
     "json": "^11.0.0",
     "moment": "^2.29.1",
     "mongoose": "^5.13.5",
-    "uuid": "^8.3.2"
+    "uuid": "^8.3.2",
+    "wow.js": "^1.2.2"
   }
 }
