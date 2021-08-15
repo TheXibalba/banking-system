@@ -1,7 +1,14 @@
 <%-include("./partials/header") %> <%-include("./partials/navbar") %> <% const
 transactions = customer.transactions%>
 
-<div class="home-container container mt-4 animate__animated animate__fadeIn">
+<div
+  class="
+    home-container
+    container
+    mt-4
+    animate__animated animate__fadeIn animate__slow
+  "
+>
   <% if (transactions.length>0) { %>
   <div class="row bg-light pt-2 pb-2 mt-4">
     <h3 class="text-center">
@@ -10,13 +17,7 @@ transactions = customer.transactions%>
   </div>
   <div class="row mt-2">
     <div class="col">
-      <table
-        class="
-          table table-primary table-striped table-bordered
-          border-dark
-          mt-2
-        "
-      >
+      <table class="table table-light table-bordered border-dark mt-2">
         <thead class="text-center fs-6">
           <tr>
             <th>Sr. No.</th>
@@ -25,16 +26,14 @@ transactions = customer.transactions%>
             <th>Transferred To</th>
             <th>Debit</th>
             <th>Credit</th>
-            <th>Balance</th>
+            <th class="bg-warning bg-gradient">Balance</th>
           </tr>
         </thead>
 
         <tbody class="text-center fs-6">
-          <% transactions.slice().reverse().forEach((transaction,index)=>{
-            const tempDate=(transaction.updatedAt).toString();
-            const updatedAt=tempDate.substring(0,tempDate.indexOf('GMT'));
-        
-            %>
+          <% transactions.slice().reverse().forEach((transaction,index)=>{ const
+          tempDate=(transaction.updatedAt).toString(); const
+          updatedAt=tempDate.substring(0,tempDate.indexOf('GMT')); %>
 
           <tr>
             <td class="fw-bold"><%= index+1%></td>
@@ -61,7 +60,7 @@ transactions = customer.transactions%>
 
             <td class="fw-bold">-</td>
             <%}%>
-            <td class="fw-bold">
+            <td class="fw-bold bg-warning bg-gradient">
               <span><i class="fas fa-rupee-sign"></i></span>
               <%=(transaction.transactionDetails.balance).toLocaleString('en-IN')%>
             </td>

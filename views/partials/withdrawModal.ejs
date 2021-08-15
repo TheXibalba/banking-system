@@ -1,57 +1,49 @@
 <form action="/customers/<%=customerData.accNo%>/withdrawFunds" method="post">
-    <div
-      class="modal fade"
-      id="withdrawlBackdrop"
-      data-bs-backdrop="static"
-      data-bs-keyboard="false"
-      tabindex="-1"
-    >
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h4 class="modal-title" id="staticBackdropLabel">
-              Withdraw Funds:
-            </h4>
-            <button
-              type="button"
-              class="btn-close"
-              data-bs-dismiss="modal"
-            ></button>
+  <div
+    class="modal fade"
+    id="withdrawlBackdrop"
+    data-bs-backdrop="static"
+    data-bs-keyboard="false"
+    tabindex="-1"
+  >
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title" id="staticBackdropLabel">Withdraw Funds:</h4>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+          ></button>
+        </div>
+
+        <div class="modal-body">
+          <div class="form-group">
+            <label for="amount" class="fw-bold">Enter Amount:</label>
+            <input
+              type="number"
+              name="amount"
+              class="form-control mt-3"
+              placeholder="Amount in INR"
+              required
+            />
           </div>
-  
-          <div class="modal-body">
-            <div class="form-group">
-              <label for="amount" class="fw-bold">Enter Amount:</label>
-              <input
-                type="number"
-                name="amount"
-                class="form-control  mt-3"
-                placeholder="Amount in INR"
-                required
-               
-              />
-            </div>
-          </div>
-  
-          <div class="modal-footer">
-            <button
-              type="button"
-              class="btn btn-warning"
-              data-bs-dismiss="modal"
-            >
-              Cancel
-            </button>
-            <div class="form-group">
-              <input
-                type="submit"
-                name="submit"
-                class="btn btn-md btn-danger"
-                value="Withdraw Funds"
-              />
-            </div>
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-warning" data-bs-dismiss="modal">
+            Cancel
+          </button>
+          <div class="form-group">
+            <input
+              type="submit"
+              name="submit"
+              class="btn btn-md btn-danger"
+              value="Withdraw Funds"
+            />
           </div>
         </div>
       </div>
     </div>
-  </form>
-  
+  </div>
+</form>

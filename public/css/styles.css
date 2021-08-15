@@ -1,7 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
 * {
   box-sizing: border-box;
 }
-
 
 .footer {
   position: fixed;
@@ -9,7 +9,106 @@
   bottom: 0;
 }
 
-body{
-    background-image: url('/images/background.jpg') !important;
-    /* background: red imprt !important;  */
+body {
+  background-image: url("/images/background.jpg") !important;
+  font-family: "Montserrat", sans-serif !important;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  /* background: red imprt !important;  */
+}
+
+
+
+@media screen and (max-width: 400px){
+  .home-container{
+    width: 100% !important;
+    height:100vh;
+    display:flex !important;
+    flex-direction:column;
+    align-items:space-between;
+    
+    
+  }
+  .home-container row{
+    width:100% !important;
+  }
+  
+  .customer-container{
+    padding:0 !important;
+    max-width: 100% !important;
+  }
+
+
+  .customer-card-container{
+
+    padding:0 !important;
+    
+  }
+  .c-pic-info{
+    display: flex;
+    flex-direction: column;
+  }
+  .customer-card{
+    margin-top:-25vh;
+    font-size: 0.9rem;
+  }
+
+ 
+.buttons-container{
+  flex-direction:column;
+  
+}
+
+.buttons-container button,a {
+  margin:0.2rem !important;
+  font-size: 0.8rem !important;
+
+
+}
+  .customer-card img{
+    min-width: 75%;
+    margin-bottom:0.5rem;
+    padding:0.2rem;
+  }
+}
+
+
+
+@media screen and (max-width: 768px){
+  .customers-table{
+margin-left:-75%
+   
+  }
+  .customer-container{
+    min-height:90vh !important;
+  }
+  .home-container{
+    width: 40% !important;
+    height:100vh;
+    display:flex !important;
+    flex-direction:column;
+    align-items:space-between;
+    
+    
+  }
+  
+  .customer-card-container{
+    min-width: 100% !important;
+    
+  }
+  .customer-card{
+    margin-top:-25vh;
+    font-size: 0.9rem;
+  }
+
+  .customer-card button{
+    font-size: 0.8rem;
+  
+    padding: 0.5rem;
+    margin: 0 0.5rem;
+  }
+  footer{
+    font-size: 0.8rem;
+  }
 }

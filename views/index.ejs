@@ -1,6 +1,13 @@
 <%-include("./partials/header") %> <%-include("./partials/navbar") %>
 
-<div class="home-container container mt-4   animate__animated animate__fadeIn">
+<div
+  class="
+    home-container
+    container
+    mt-4
+    animate__animated animate__fadeIn animate__slow
+  "
+>
   <% if (customers.length>0) { %>
   <div class="row">
     <h1 class="text-center">List of Customers</h1>
@@ -9,6 +16,7 @@
     <div class="col">
       <table
         class="
+          customers-table
           table table-primary table-striped table-bordered
           border-dark
           mt-4
@@ -38,7 +46,7 @@
             <td>
               <a
                 type="button"
-                class="btn btn-sm btn-primary fw-bold"
+                class="btn btn-sm btn-primary p-1 fw-bold"
                 href="/customers/<%=(customer.accNo).toString()%>"
               >
                 View Details

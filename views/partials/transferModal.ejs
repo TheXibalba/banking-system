@@ -22,13 +22,10 @@
         <div class="modal-body">
           <div class="form-group">
             <label for="amount" class="fw-bold">Beneficiary Account:</label>
-            <select class="form-select" name="transferTo">
+            <select class="form-select mt-2" name="transferTo">
 
 
 <%if(allCustomers.length>0){%>
-
-
-
               <% allCustomers.forEach(customer => { %> 
               <option value="<%=customer.accNo%>"><%=customer.name%></option>
               <% }) %>
@@ -36,11 +33,11 @@
             </select>
           </div>
           <div class="form-group">
-            <label for="amount" class="fw-bold">Enter Amount:</label>
+            <label for="amount" class="fw-bold mt-3">Enter Amount:</label>
             <input
               type="number"
               name="amount"
-              class="form-control mt-3"
+              class="form-control mt-2"
               placeholder="Amount in INR"
               required
             />

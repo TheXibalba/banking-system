@@ -3,7 +3,7 @@ const app = express();
 const mongoose = require("mongoose");
 const PORT = 3000 || process.env.PORT;
 const ejs = require("ejs");
-const cors = require('cors')
+const cors = require("cors");
 const { indexController } = require("./controllers/indexController");
 const {
   customerDisplayController,
@@ -54,5 +54,3 @@ app.post("/customers/:id/withdrawFunds", withdrawController);
 app.post("/customers/:id/transferFunds", transferFundsController);
 
 app.post("/customers", customerAddController);
-
-

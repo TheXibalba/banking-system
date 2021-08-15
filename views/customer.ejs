@@ -3,19 +3,21 @@
 <div
   class="
     container-fluid
+    customer-container
     d-flex
     justify-content-center
     align-items-center
     flex-column
     mt-3
+    h-100
     overflow-hidden
-    animate__animated animate__fadeIn
+    animate__animated animate__fadeIn animate__slow
   "
 >
-  <div class="container-fluid w-50">
-    <div class="card p-2">
+  <div class="container-fluid customer-card-container w-50 mt-5 p-5">
+    <div class="card p-2 customer-card">
       <h5 class="card-header text-center fw-bold">Customer Account Details</h5>
-      <div class="d-flex align-items-center justify-content-evenly mt-3 mb-3">
+      <div class="d-flex align-items-center justify-content-evenly mt-3 mb-3 c-pic-info">
         <img
           class="card-img-top p-3 mt-2 border border-dark w-25"
           src="/images/dog.jpg"
@@ -79,6 +81,7 @@
         <div
           class="
             container-fluid
+            buttons-container
             d-flex
             justify-content-around
             align-items-center
@@ -115,14 +118,12 @@
           >
             Transfer Funds
           </button>
-
         </div>
       </div>
     </div>
   </div>
 </div>
 
-<%-include("./partials/addFundsModal") %> 
-<%-include("./partials/footer") %>
-<%-include("./partials/withdrawModal") %>
-<%-include("./partials/transferModal") %>
+<%-include("./partials/addFundsModal") %> <%-include("./partials/footer") %>
+<%-include("./partials/withdrawModal") %> <%-include("./partials/transferModal")
+%>
