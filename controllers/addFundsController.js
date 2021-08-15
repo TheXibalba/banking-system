@@ -17,7 +17,7 @@ exports.addFundsController = (req, res) => {
 
           $push: {
             transactions: {
-              transactionType: "deposit",
+              transactionType: "credit",
               transactionDetails: {
                 transferredFrom: "Self",
                 transferredTo: "Self",

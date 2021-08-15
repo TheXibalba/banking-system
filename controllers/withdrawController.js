@@ -18,7 +18,7 @@ exports.withdrawController = (req, res) => {
 
           $push: {
             transactions: {
-              transactionType: "withdraw",
+              transactionType: "debit",
               transactionDetails: {
                 transferredFrom: "Self",
                 transferredTo: "Self",
