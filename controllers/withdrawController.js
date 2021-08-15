@@ -1,14 +1,14 @@
 const Customer = require("../models/customerModel");
 exports.withdrawController = (req, res) => {
   const id = req.params.id;
-  const { amount } = req.body;
-
+  let { amount } = req.body;
+  amount = amount.trim();
   Customer.findOne({ accNo: id })
     .then((response) => {
       console.log(`Current Balance: ${response.currentBal}`);
       console.log(`Negated Amount: ${Number(-amount)}`);
       const snapshotOfCurrentBalance = response.currentBal + Number(-amount);
-
+      if (snapshotOfCurrentBalance < 0) throw Error("Insufficient Funds!");
       console.log(`Snapshot of Balance: ${snapshotOfCurrentBalance}`);
       Customer.findOneAndUpdate(
         { accNo: id },
@@ -30,16 +30,14 @@ exports.withdrawController = (req, res) => {
         }
       )
         .then((response) => {
-          console.log(`After: ${response}`);
+          // console.log(`After: ${response}`);
           res.redirect(`/customers/${id}`);
         })
         .catch((err) => {
-          console.log(err);
-          res.json({ message: err._message });
+          res.send(`<h1> ${err.toString()}</h1>`);
         });
     })
     .catch((err) => {
-      console.log(err);
-      res.json({ message: err._message });
+      res.send(`<h1> ${err.toString()}</h1>`);
     });
 };

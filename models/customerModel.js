@@ -18,7 +18,7 @@ const transactionSchema = new Schema(
       },
       balance: {
         type: Number,
-        default: -1,
+        default: 0,
       },
 
       amount: {
@@ -63,7 +63,7 @@ const customerSchema = new Schema(
     transactions: [transactionSchema],
     currentBal: {
       type: Number,
-      required: [true, "Please provide valid balance"],
+      required: [true, "Please provide a valid balance"],
       default: 0,
       min: 0,
     },

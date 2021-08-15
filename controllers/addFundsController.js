@@ -1,19 +1,20 @@
 const Customer = require("../models/customerModel");
 exports.addFundsController = (req, res) => {
   const id = req.params.id;
-  const { amount } = req.body;
+  let { amount } = req.body;
+  amount=Math.abs(Number(amount.trim()));
   console.log(req.body);
 
   Customer.findOne({ accNo: id })
     .then((response) => {
       // console.log(`Before: ${response}`);
-      const snapshotOfCurrentBalance = response.currentBal + Number(amount);
+      const snapshotOfCurrentBalance = response.currentBal +amount;
       console.log(`Snapshot of Balance: ${snapshotOfCurrentBalance}`);
       Customer.findOneAndUpdate(
         { accNo: id },
 
         {
-          $inc: { currentBal: Number(amount) },
+          $inc: { currentBal:amount },
 
           $push: {
             transactions: {
@@ -22,7 +23,7 @@ exports.addFundsController = (req, res) => {
                 transferredFrom: "Self",
                 transferredTo: "Self",
                 balance: snapshotOfCurrentBalance,
-                amount: Number(amount),
+                amount:amount,
               },
             },
           },
