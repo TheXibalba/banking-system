@@ -12,6 +12,7 @@ const {
   customerAddController,
 } = require("./controllers/customerAddController");
 const { addFundsController } = require("./controllers/addFundsController");
+const { withdrawController } = require("./controllers/withdrawController");
 const {
   displayTransactionsController,
 } = require("./controllers/displayTransactionsController");
@@ -29,13 +30,12 @@ const connection = mongoose.connect(
   {
     useNewUrlParser: true,
     useUnifiedTopology: true,
-    useFindAndModify: false
+    useFindAndModify: false,
   }
 );
 
 connection
   .then((response) => {
-    // console.log(response.connections);
     console.log("Database has been connected!");
     app.listen(PORT, () => {
       console.log(`Server running on Port: ${PORT}`);
@@ -49,6 +49,7 @@ app.get("/", indexController);
 app.get("/customers/:id", customerDisplayController);
 app.get("/customers/:id/transactions", displayTransactionsController);
 app.post("/customers/:id/addFunds", addFundsController);
+app.post("/customers/:id/withdrawFunds", withdrawController);
 
 app.get("/customers/:id/transfer", transferFundsController);
 

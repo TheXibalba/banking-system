@@ -1,4 +1,4 @@
-<%-include("./partials/header") %> <%-include("./partials/navbar") %> 
+<%-include("./partials/header") %> <%-include("./partials/navbar") %>
 
 <div
   class="
@@ -92,11 +92,19 @@
 
           <button
             type="button"
-            class="btn btn-md btn-success"
+            class="btn btn-md btn-success fw-bold"
             data-bs-toggle="modal"
             data-bs-target="#staticBackdrop"
           >
             Add Funds
+          </button>
+          <button
+            type="button"
+            class="btn btn-md btn-warning fw-bold"
+            data-bs-toggle="modal"
+            data-bs-target="#withdrawlBackdrop"
+          >
+            Withdraw Funds
           </button>
 
           <a
@@ -111,3 +119,4 @@
 </div>
 
 <%-include("./partials/addFundsModal") %> <%-include("./partials/footer") %>
+<%-include("./partials/withdrawModal") %>

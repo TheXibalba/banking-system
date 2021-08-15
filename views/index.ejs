@@ -1,53 +1,60 @@
-<%-include("./partials/header") %>
-<%-include("./partials/navbar") %>
+<%-include("./partials/header") %> <%-include("./partials/navbar") %>
 
-    <div class="home-container container mt-4">
-      <% if (customers.length>0) { %>
-        <div class="row">
-          <h1 class="text-center">List of Customers</h1>
-       
-        </div>
-        <div class="row"> 
-          <div class="col">
-             
-          
-            <table class="table table-primary table-striped table-bordered border-dark mt-4 ">
-              <thead class="text-center fs-6">
-                <tr>
-                  <th>Sr. No.</th>
-                  <th>Name</th>
-                  <th>Email ID</th>
-                  <th>Address</th>
-                  <th>Current Balance</th>
-                  <th>Details</th>
-                </tr>
-              </thead>
-              <tbody class="text-center fs-6 ">
-               <% customers.forEach((customer,index) => { %>
-                <tr>
-                  <td class="fw-bold"><%=index +1%>  </td>
-                  <td><%=customer.name%></td>
-                  <td><%=customer.email%></td>
-                  <td><%=customer.address%></td>
-                  <td></span><i class="fas fa-rupee-sign"></i><%=(customer.currentBal).toLocaleString('en-IN')%></td>
-                  <td>
-                    <a type="button" class="btn btn-sm btn-primary fw-bold" href="/customers/<%=(customer.accNo).toString()%>">
-                      View Details
-                    </a>
-                  </td> 
-                </tr>
-               <% }) %>
-              </tbody>
-            </table>
-          </div>
-        </div>
-        <% }else{ %>
-          <div class="row">
-            <h1 class="text-center">There are no customers at the moment!</h1>
-         
-          </div>
-        <%}%>
-      </div> 
-      
-      
-      <%-include("./partials/footer") %>
+<div class="home-container container mt-4">
+  <% if (customers.length>0) { %>
+  <div class="row">
+    <h1 class="text-center">List of Customers</h1>
+  </div>
+  <div class="row">
+    <div class="col">
+      <table
+        class="
+          table table-primary table-striped table-bordered
+          border-dark
+          mt-4
+        "
+      >
+        <thead class="text-center fs-6">
+          <tr>
+            <th>Sr. No.</th>
+            <th>Name</th>
+            <th>Email ID</th>
+            <th>Address</th>
+            <th>Current Balance</th>
+            <th>Details</th>
+          </tr>
+        </thead>
+        <tbody class="text-center fs-6">
+          <% customers.forEach((customer,index) => { %>
+          <tr>
+            <td class="fw-bold"><%=index +1%></td>
+            <td><%=customer.name%></td>
+            <td><%=customer.email%></td>
+            <td><%=customer.address%></td>
+            <td>
+              <span><i class="fas fa-rupee-sign"></i></span
+              ><%=(customer.currentBal).toLocaleString('en-IN')%>
+            </td>
+            <td>
+              <a
+                type="button"
+                class="btn btn-sm btn-primary fw-bold"
+                href="/customers/<%=(customer.accNo).toString()%>"
+              >
+                View Details
+              </a>
+            </td>
+          </tr>
+          <% }) %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <% }else{ %>
+  <div class="row">
+    <h1 class="text-center">There are no customers at the moment!</h1>
+  </div>
+  <%}%>
+</div>
+
+<%-include("./partials/footer") %>

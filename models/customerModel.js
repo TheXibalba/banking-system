@@ -1,13 +1,12 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
-const { v4: uuidv4 } = require("uuid");
-
 
 const transactionSchema = new Schema(
   {
     transactionType: {
       type: String,
     },
+
     transactionDetails: {
       transferredFrom: {
         type: String,
@@ -17,15 +16,15 @@ const transactionSchema = new Schema(
         type: String,
         default: "",
       },
-      balance:{
+      balance: {
         type: Number,
-        default: 0
-
+        default: -1,
       },
-      amount:{
-        type:Number,
-        default:0
-      }
+
+      amount: {
+        type: Number,
+        default: 0,
+      },
     },
   },
   {
@@ -66,6 +65,7 @@ const customerSchema = new Schema(
       type: Number,
       required: [true, "Please provide valid balance"],
       default: 0,
+      min: 0,
     },
   },
   {

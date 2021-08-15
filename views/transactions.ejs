@@ -1,72 +1,78 @@
-<%-include("./partials/header") %> 
-<%-include("./partials/navbar") %>
-
-<% const transactions = customer.transactions%>
+<%-include("./partials/header") %> <%-include("./partials/navbar") %> <% const
+transactions = customer.transactions%>
 
 <div class="home-container container mt-4">
-    <% if (transactions.length>0) { %>
-      <div class="row bg-light p-1">
-        <h3 class="text-center"> <span class=""> Transaction Details For:  </span> <%= customer.name%></h3>
-     
-      </div>
-      <div class="row"> 
-        <div class="col">
-           
-        
-          <table class="table table-primary table-striped table-bordered border-dark mt-2 ">
-            <thead class="text-center fs-6">
-              <tr>
-                <th>Sr. No.</th>
-                <th>Date</th>
-                <th>Transaction Details</th>
-                <th>Debit/Credit</th>
-                <th>Balance</th>
-              </tr>
-            </thead>
-            <tbody class="text-center fs-6 ">
-                
-
-             <% transactions.slice().reverse().forEach((transaction,index) => { %>
-              <tr>
-                <td class="fw-bold"><%=index +1%>  </td>
-                <td><%=transaction.updatedAt%></td>
-                <td><%=transaction.transactionType%></td>
-                <td><%=(transaction.transactionDetails.amount).toLocaleString('en-IN')%></td>
-                <td></span><i class="fas fa-rupee-sign"></i><%=(customer.currentBal).toLocaleString('en-IN')%></td>
+  <% if (transactions.length>0) { %>
+  <div class="row bg-light pt-2 pb-2 mt-4">
+    <h3 class="text-center">
+      <span class=""> Transaction Details For: </span> <%= customer.name%>
+    </h3>
+  </div>
+  <div class="row mt-2">
+    <div class="col">
+      <table
+        class="
+          table table-primary table-striped table-bordered
+          border-dark
+          mt-2
+        "
+      >
+        <thead class="text-center fs-6">
+          <tr>
+            <th>Sr. No.</th>
+            <th>Date</th>
+            <th>Transaction Type</th>
+            <th>Transferred From</th>
+            <th>Transferred To</th>
+            <th>Amount</th>
+            <th>Balance</th>
+          </tr>
+        </thead>
+        <tbody class="text-center fs-6">
+          <% transactions.slice().reverse().forEach((transaction,index) => {
             
-              </tr>
-             <% }) %>
-            </tbody>
-          </table>
-        </div>
-      </div>
-      <% }else{ %>
-        <div class="row">
-          <h1 class="text-center">There are no transactions at the moment!</h1>
-       
-        </div>
-      <%}%>
-    </div> 
+            console.log(transaction);
+            
+            %>
+          <tr>
+            <td class="fw-bold"><%=index +1%></td>
+            <td><%=transaction.updatedAt%></td>
+           
+              <%if (transaction.transactionType==="deposit") {%>
+                <td class="text-success fw-bold"> <%=transaction.transactionType%></td>
+                
+              <%} else if(transaction.transactionType==="withdraw") {%>
+                <td class="text-danger fw-bold"> <%=transaction.transactionType%></td>
+                
+                <%}else{%>
+                  <td class="text-warning fw-bold"> <%=transaction.transactionType%></td>
+
+                <%}%>
+            <td><%=transaction.transactionDetails.transferredFrom%></td>
+            <td><%=transaction.transactionDetails.transferredTo%></td>
+            <td>
+              <span><i class="fas fa-rupee-sign"></i></span>
+              <%=(transaction.transactionDetails.amount).toLocaleString('en-IN')%>
+              </td>
+              <td>
+                <span><i class="fas fa-rupee-sign"></i></span
+                  >
+                  <%=(transaction.transactionDetails.balance).toLocaleString('en-IN')%>
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+            </td>
+          </tr>
+          <% }) %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <% }else{ %>
+  <div class="row">
+    <h1 class="text-center">There are no transactions at the moment!</h1>
+  </div>
+  <%}%>
+</div>
 
 <%-include("./partials/footer") %>
