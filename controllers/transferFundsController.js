@@ -12,7 +12,9 @@ exports.transferFundsController = (req, res) => {
   Customer.find({ $or: [{ accNo: sender }, { accNo: receiver }] })
     .then((senderAndReceiver) => {
       let [S, R] = senderAndReceiver;
-
+      const senderName = S.accNo === sender ? S.name : R.name;
+      const receiverName = R.accNo === receiver ? R.name : S.name;
+      console.log(`Sent From ${senderName} to ${receiverName}`);
       //Withdraw Funds
 
       Customer.findOne({ accNo: sender })
@@ -34,7 +36,7 @@ exports.transferFundsController = (req, res) => {
                   transactionType: "debit",
                   transactionDetails: {
                     transferredFrom: "Self",
-                    transferredTo: R.name,
+                    transferredTo: receiverName,
                     balance: snapshotOfCurrentBalance,
                     amount: Number(amount),
                   },
@@ -71,7 +73,7 @@ exports.transferFundsController = (req, res) => {
                   transactions: {
                     transactionType: "credit",
                     transactionDetails: {
-                      transferredFrom: S.name,
+                      transferredFrom: senderName,
                       transferredTo: "Self",
                       balance: snapshotOfCurrentBalance,
                       amount: amount,

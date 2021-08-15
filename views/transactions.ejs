@@ -21,21 +21,27 @@ transactions = customer.transactions%>
           <tr>
             <th>Sr. No.</th>
             <th>Date</th>
-            <th>Debit</th>
-            <th>Credit</th>
             <th>Transferred From</th>
             <th>Transferred To</th>
+            <th>Debit</th>
+            <th>Credit</th>
             <th>Balance</th>
           </tr>
         </thead>
 
         <tbody class="text-center fs-6">
-          <% transactions.slice().reverse().forEach((transaction,index)=>{ %>
+          <% transactions.slice().reverse().forEach((transaction,index)=>{
+            const tempDate=(transaction.updatedAt).toString();
+            const updatedAt=tempDate.substring(0,tempDate.indexOf('GMT'));
+        
+            %>
 
           <tr>
             <td class="fw-bold"><%= index+1%></td>
-            <td><%=transaction.updatedAt%></td>
+            <td><%=updatedAt%></td>
 
+            <td><%=transaction.transactionDetails.transferredFrom%></td>
+            <td><%=transaction.transactionDetails.transferredTo%></td>
             <% if(transaction.transactionType==="debit"){ %>
             <td class="text-danger fw-bold">
               <span><i class="fas fa-rupee-sign"></i></span>
@@ -55,8 +61,6 @@ transactions = customer.transactions%>
 
             <td class="fw-bold">-</td>
             <%}%>
-            <td><%=transaction.transactionDetails.transferredFrom%></td>
-            <td><%=transaction.transactionDetails.transferredTo%></td>
             <td class="fw-bold">
               <span><i class="fas fa-rupee-sign"></i></span>
               <%=(transaction.transactionDetails.balance).toLocaleString('en-IN')%>
