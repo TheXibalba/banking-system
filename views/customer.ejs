@@ -107,17 +107,22 @@
           >
             Withdraw Funds
           </button>
-
-          <a
-            href="<%=customerData.accNo%>/transfer"
+          <button
+            type="button"
             class="btn btn-md btn-danger fw-bold"
-            >Transfer Funds</a
+            data-bs-toggle="modal"
+            data-bs-target="#transferBackdrop"
           >
+            Transfer Funds
+          </button>
+
         </div>
       </div>
     </div>
   </div>
 </div>
 
-<%-include("./partials/addFundsModal") %> <%-include("./partials/footer") %>
+<%-include("./partials/addFundsModal") %> 
+<%-include("./partials/footer") %>
 <%-include("./partials/withdrawModal") %>
+<%-include("./partials/transferModal") %>

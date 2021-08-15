@@ -3,7 +3,7 @@ const app = express();
 const mongoose = require("mongoose");
 const PORT = 3000 || process.env.PORT;
 const ejs = require("ejs");
-
+const cors = require('cors')
 const { indexController } = require("./controllers/indexController");
 const {
   customerDisplayController,
@@ -19,8 +19,8 @@ const {
 const {
   transferFundsController,
 } = require("./controllers/transferFundsController");
-const { updateController } = require("./controllers/updateController");
 
+app.use(cors());
 app.set("view engine", "ejs");
 app.use(express.static(__dirname + "/public"));
 app.use(express.urlencoded({ extended: true }));
@@ -51,8 +51,8 @@ app.get("/customers/:id/transactions", displayTransactionsController);
 app.post("/customers/:id/addFunds", addFundsController);
 app.post("/customers/:id/withdrawFunds", withdrawController);
 
-app.get("/customers/:id/transfer", transferFundsController);
+app.post("/customers/:id/transferFunds", transferFundsController);
 
 app.post("/customers", customerAddController);
 
-app.put("/customers/:id", updateController);
+

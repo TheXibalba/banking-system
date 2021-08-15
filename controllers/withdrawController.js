@@ -1,15 +1,16 @@
 const Customer = require("../models/customerModel");
+
 exports.withdrawController = (req, res) => {
   const id = req.params.id;
   let { amount } = req.body;
   amount = amount.trim();
   Customer.findOne({ accNo: id })
     .then((response) => {
-      console.log(`Current Balance: ${response.currentBal}`);
-      console.log(`Negated Amount: ${Number(-amount)}`);
+      // console.log(`Current Balance: ${response.currentBal}`);
+      // console.log(`Negated Amount: ${Number(-amount)}`);
       const snapshotOfCurrentBalance = response.currentBal + Number(-amount);
       if (snapshotOfCurrentBalance < 0) throw Error("Insufficient Funds!");
-      console.log(`Snapshot of Balance: ${snapshotOfCurrentBalance}`);
+      // console.log(`Snapshot of Balance: ${snapshotOfCurrentBalance}`);
       Customer.findOneAndUpdate(
         { accNo: id },
 
