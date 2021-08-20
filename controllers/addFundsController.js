@@ -3,12 +3,12 @@ exports.addFundsController = (req, res) => {
   const id = req.params.id;
   let { amount } = req.body;
   amount=Math.abs(Number(amount.trim()));
-  console.log(req.body);
+  // console.log(req.body);
 
   Customer.findOne({ accNo: id })
     .then((response) => {
       // console.log(`Before: ${response}`);
-      const snapshotOfCurrentBalance = response.currentBal +amount;
+      // const snapshotOfCurrentBalance = response.currentBal +amount;
       console.log(`Snapshot of Balance: ${snapshotOfCurrentBalance}`);
       Customer.findOneAndUpdate(
         { accNo: id },

@@ -10,7 +10,7 @@
 }
 
 body {
-  background-image: url("/images/background.jpg") !important;
+  background-image: url("https://i.ibb.co/x1FP1sm/background.jpg") !important;
   font-family: "Montserrat", sans-serif !important;
   background-repeat: no-repeat;
   background-size: cover;

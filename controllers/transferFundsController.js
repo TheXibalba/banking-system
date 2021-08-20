@@ -19,7 +19,7 @@ exports.transferFundsController = (req, res) => {
 
       Customer.findOne({ accNo: sender })
         .then((response) => {
-          console.log(`Current Balance: ${response.currentBal}`);
+          // console.log(`Current Balance: ${response.currentBal}`);
           // console.log(`Negated Amount: ${Number(-amount)}`);
           const snapshotOfCurrentBalance =
             response.currentBal + Number(-amount);
@@ -62,7 +62,7 @@ exports.transferFundsController = (req, res) => {
           .then((response) => {
             // console.log(`Before: ${response}`);
             const snapshotOfCurrentBalance = response.currentBal + amount;
-            console.log(`Snapshot of Balance: ${snapshotOfCurrentBalance}`);
+            // console.log(`Snapshot of Balance: ${snapshotOfCurrentBalance}`);
             Customer.findOneAndUpdate(
               { accNo: receiver },
 
