@@ -11,7 +11,7 @@
     mt-3
     h-100
     overflow-hidden
-    animate__animated animate__fadeIn animate__slow
+    animate__animated animate__fadeIn animate__slow 
   "
 >
   <div class="container-fluid customer-card-container w-50 mt-5 p-5">
@@ -20,7 +20,7 @@
       <div class="d-flex align-items-center justify-content-evenly mt-3 mb-3 c-pic-info">
         <img
           class="card-img-top p-3 mt-2 border border-dark w-25"
-          src="/images/dog.jpg"
+          src="<%=customerData.imgUrl%>"
           alt="Card image cap"
         />
         <div class="div">
@@ -34,6 +34,11 @@
               <span class="fw-bold"> Date of Birth: </span>
 
               <%=dob%>
+            </li>
+            <li class="list-group-item">
+              <span class="fw-bold"> Gender: </span>
+
+              <%=customerData.gender%>
             </li>
             <li class="list-group-item">
               <span class="fw-bold"> Created on: </span>

@@ -3,14 +3,16 @@ const Customer = require("../models/customerModel");
 exports.customerAddController = (req, res) => {
     // console.log(req.body);
   
-    const { name,address,dob, email, currentBal,phone } = req.body;
+    const { name,address,dob, email, currentBal,phone,imgUrl,gender } = req.body;
     const customer = new Customer({
       name: name,
       email: email,
       address:address,
       dob:dob,
       currentBal: currentBal,
-      phone:phone
+      phone:phone,
+      imgUrl:imgUrl,
+      gender:gender
     });
   
     customer.save((err, result) => {

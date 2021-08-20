@@ -42,6 +42,12 @@ const customerSchema = new Schema(
       type: Date,
       required: [true, "Please provide a Date of Birth"],
     },
+    gender:{
+      type:String,
+      required:true,
+      default:""
+    }
+    ,
     address: {
       type: String,
       default: "India",
@@ -67,6 +73,11 @@ const customerSchema = new Schema(
       default: 0,
       min: 0,
     },
+    imgUrl:{
+      type:String,
+      required:true,
+      default:""
+    }
   },
   {
     timestamps: true,

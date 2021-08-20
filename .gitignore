@@ -1,5 +1,6 @@
 #custom
 temp.txt
+web.config
 # Logs
 logs
 *.log
