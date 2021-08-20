@@ -8,8 +8,8 @@ exports.addFundsController = (req, res) => {
   Customer.findOne({ accNo: id })
     .then((response) => {
       // console.log(`Before: ${response}`);
-      // const snapshotOfCurrentBalance = response.currentBal +amount;
-      console.log(`Snapshot of Balance: ${snapshotOfCurrentBalance}`);
+      const snapshotOfCurrentBalance = response.currentBal +amount;
+      // console.log(`Snapshot of Balance: ${snapshotOfCurrentBalance}`);
       Customer.findOneAndUpdate(
         { accNo: id },
 
